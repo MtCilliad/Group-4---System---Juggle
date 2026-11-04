@@ -1,4 +1,5 @@
 class WorkloadAnalyzer:
+    PRIORITY_WEIGHTS = {"High": 1.5, "Medium": 1.0, "Low": 0.5}
 
     def __init__(self, tasks, available_time):
         self.tasks = tasks
@@ -95,9 +96,9 @@ class WorkloadAnalyzer:
             if style == "Focused Planner":
                 return (
                     not fits_time,
-                    -duration,
+                    -self.get_focus_score(task),
                     priority,
-                    deadline
+                    deadline,
                 )
 
             elif style == "Quick Starter":
@@ -189,3 +190,10 @@ class WorkloadAnalyzer:
             )
 
         return reason
+
+    def get_focus_score(self, task):
+        
+        priority = getattr(task, "priority", "Low")
+        weight = self.PRIORITY_WEIGHTS.get(priority, 0.5)
+        minutes = self.get_duration(task)
+        return (weight * minutes) + minutes
