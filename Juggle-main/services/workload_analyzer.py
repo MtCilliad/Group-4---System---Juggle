@@ -96,8 +96,8 @@ class WorkloadAnalyzer:
             if style == "Focused Planner":
                 return (
                     not fits_time,
-                    -self.get_focus_score(task),
                     priority,
+                    duration,
                     deadline,
                 )
 
@@ -192,7 +192,6 @@ class WorkloadAnalyzer:
         return reason
 
     def get_focus_score(self, task):
-        
         priority = getattr(task, "priority", "Low")
         weight = self.PRIORITY_WEIGHTS.get(priority, 0.5)
         minutes = self.get_duration(task)
