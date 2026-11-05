@@ -17,7 +17,7 @@ The system provides personalized recommendations to help users make better workl
 * **Workload Planning** — Review tasks and organize upcoming commitments.
 * **Authentication** — Use Supabase for user authentication.
 * **Activity Tracking** — Track completed tasks and display activity history.
---
+
 ## Technologies Used
 | Technology	| Purpose |
 | :--- | :---
