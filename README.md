@@ -26,7 +26,7 @@ Streamlit	| User interface
 Supabase |	Authentication and database services
 Git	| Version control
 GitHub |	Source code hosting
---
+
 
 ## How Juggle Works
 1. Assess Work Style — The user completes an assessment to identify their work preferences.
